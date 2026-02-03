@@ -1,6 +1,30 @@
 
 // To test locally in chrome, press F12, go to Sources > Overrides and add the "Websites" Folder
 
+var siteBasePath = (function () {
+    var host = window.location.hostname;
+    if (host.endsWith('github.io')) {
+        var parts = window.location.pathname.split('/');
+        if (parts.length > 1 && parts[1]) {
+            return '/' + parts[1] + '/';
+        }
+    }
+    return '/';
+})();
+
+function updateFaviconPaths() {
+    var favicon = document.querySelector('link[rel="shortcut icon"]');
+    if (favicon) {
+        favicon.href = siteBasePath + 'favicon.ico';
+    }
+    var appleTouch = document.querySelector('link[rel="apple-touch-icon"]');
+    if (appleTouch) {
+        appleTouch.href = siteBasePath + 'images/favicon.png';
+    }
+}
+
+updateFaviconPaths();
+
 pages = [  // use nice name, do NOT keep a '/' at the end
     'Projects/Actuator',
     'Projects/Beach Body Bros',
@@ -16,7 +40,7 @@ pages = [  // use nice name, do NOT keep a '/' at the end
 function buildNavPane() 
 {
     document.getElementById("navpane").innerHTML =
-    "<div id='sitelogo' align='center'><a href='/'><img src='/images/SiteLogo.png' height='100px'></img></a></div>" +
+    "<div id='sitelogo' align='center'><a href='" + siteBasePath + "'><img src='" + siteBasePath + "images/SiteLogo.png' height='100px'></img></a></div>" +
     "<br/>" +
     "<div id='nametitle'>Tyler Hurd</div>" +
     "<div style='font-style:italic; font-size: x-small'>Animator, VR Creator</div>" +
@@ -39,7 +63,7 @@ function buildNavPane()
 function buildMiniNavPane() 
 {
     document.getElementById("mininavpane").innerHTML =
-    "<div><a href='/'>< BACK</div>"
+    "<div><a href='" + siteBasePath + "'>< BACK</div>"
     ;   
 }
     
@@ -81,7 +105,7 @@ function buildThumbPane(subnav)
 
 function convertToURL(name, includeMain = false) 
 {
-    return '/' + name.toLowerCase().replace(/ /gi,'') + '/';
+    return siteBasePath + name.toLowerCase().replace(/ /gi,'') + '/';
 }
 
 

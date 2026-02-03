@@ -1,0 +1,260 @@
+/* Fonts */
+@font-face {
+  font-family: 'Francois One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Francois One Regular'), local('FrancoisOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/francoisone/v6/bYbkq2nU2TSx4SwFbz5sCHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), local('DroidSans'), url(http://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+
+/* Global stuff */
+
+* {
+	color: #5d4e3c;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #5d4e3c;
+	text-decoration: none;
+    font-weight:700;
+}
+#content div div a {
+	color: #5d4e3c;
+	text-decoration: underline;
+    text-align: justify;
+}
+
+a:hover {
+	color: #18140f;
+}
+
+h1 {
+	color: #93b9c7;
+	font-family: 'Francois One', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 3.0em;
+	padding-bottom:20px;	
+}
+
+h1 a {
+	color: #93b9c7;
+}
+
+h1 a:hover {
+	color: #c7dbe2;
+}
+
+/* mobile play button overlay */
+#mobile_play_button {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:white;
+    opacity:0.8;
+    z-index:2;
+    background-image:url("../images/PlayButton.png");
+    background-repeat:no-repeat;
+	background-position: 50% 50%;
+}
+ 
+/* Nav */
+#nav {
+    font-family: 'Francois One', sans-serif;
+	font-size: 3.0em;
+    width:100%;
+}
+
+
+#nav_left {
+    z-index:3;
+    position:absolute;
+    left:0px;
+    height:100%;
+    width:10%;
+}
+
+#nav_home {
+    z-index: 2;
+    position:absolute;
+    right:49.33%;
+    top:0%;
+}
+
+
+#nav_right {
+    z-index:3;
+    position:absolute;
+    right:0px;
+    height:100%;
+    width:10%;
+}
+
+#nav span {
+    position:absolute;
+    top: 40%;
+    left: 40%;
+}
+
+/* Body */
+body {
+    overflow-y:scroll; /* this keeps scrollbar on screen */
+	background: white;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+	margin: 0 auto 0;
+}
+
+
+#center {
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	z-index: 1;
+	width: 100%;
+    height:100%;
+    max-width: 80%;
+}
+
+#loading {
+	position: absolute;
+	width: 34px;
+	height: 34px;
+	top: 50%;
+    right: 50%;
+	background-image:url("../images/Progress_Big.gif");
+	background-repeat:no-repeat;
+	background-position: 50% 50%;
+}
+
+/*  Content */
+
+#content {
+	min-height: 300px;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 0.85em;
+	padding-top: 6em;
+}
+
+#content ul:after {
+    content:'';
+    display:block;
+    clear: both;
+}
+
+
+.sub_nav {
+    display:inline;
+}
+
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+    
+    
+    .danceli {
+        display:block;
+    }
+    .dance_movie_a, .dance_movie_b, .movie_poster_a, .movie_poster_b {
+        width:98%;
+        
+        padding-height:100%;
+        padding:1%;
+    }
+    
+    .movie_poster_a, .movie_poster_b {
+        display:none;
+        z-index:-1;
+    }
+   
+    .dance_movie_b, .movie_poster_b {
+        top:50%;
+    }
+    
+    #nav_left {
+        width: 15%;
+    }
+    #nav_right {
+        width: 15%;
+    }
+    #center {
+        max-width: 70%;
+    }
+    #content {
+        padding-top: 3em;
+    }   
+}
+
+/* Landscape */
+@media screen and (orientation:landscape) {
+    
+    .danceli {
+        display:inline;
+    }
+    .dance_movie_a, .dance_movie_b, .movie_poster_a, .movie_poster_b {
+        position:absolute;
+        width:48%;
+        padding:1%;
+    }
+    
+    .movie_poster_a, .movie_poster_b {
+        z-index:-1;
+    }
+   
+    .dance_movie_b, .movie_poster_b {
+        left:50%;
+    }
+    
+
+}
+
+
+
+#subcontent {
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 1em;
+}
+
+/* all videos get loading gif */
+
+
+a video {
+	opacity: 0.8; 
+}
+a video:hover {
+    opacity: 1;
+}
+
+
+/* turn off yellow borders around shit */
+a:active, a:selected, a:visited, a:focus { 
+    border: none;
+    outline: none;
+}
+img,video {
+	border: none;
+    outline: none;	
+}
+*:active, *:selected, *:visited, *:focus {
+	border: none;
+    outline: none;	
+}
+
+/* Turn off ios vid controls 
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+*/

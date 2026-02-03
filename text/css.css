@@ -1,0 +1,399 @@
+/* Global stuff */
+
+* {
+	margin: 0;
+	padding: 0;
+    color: #5d4e3c;
+}
+
+/* turn off yellow borders around shit */
+a:active, a:selected, a:visited, a:focus { 
+    border: none;
+    outline: none;
+}
+img {
+	border: none;
+    outline: none;	
+}
+*:active, *:selected, *:visited, *:focus {
+	border: none;
+    outline: none;	
+}
+
+/* Prevent padding from changing div sizes */
+div {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+a {
+	color: #5d4e3c;
+	text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+	color: #18140f;
+    font-weight: bold;
+}
+
+
+a img {
+    opacity:1;
+}
+a img:hover {
+    opacity:0.5;
+}
+
+
+/* GLOBAL LAYOUT */
+body {
+	font-family: Helvetica, Arial, sans-serif;
+    font-size: small;
+    text-align: justify;
+    background: white;
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+h1 {
+    font-size:3em;
+    padding-bottom: 5px;
+}
+
+h2 {
+    padding-bottom: 5px;
+}
+
+h3 {
+    padding-bottom: 3px;
+}
+
+p, ul, table {
+    padding-bottom: 3em;
+    list-style-position: inside;
+}
+
+
+/* NAV LAYOUT */
+#navpane {
+    float:left;
+    width:12em;
+    height:100%;
+    padding-top:2em;
+    padding-left:2em;
+    text-align: center;
+}
+
+#nametitle {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#navmenu {
+    text-decoration: none;
+	list-style-type: none;
+	list-style-position: inside; 
+    padding-top:50px;
+}
+
+#navfoot {
+    padding-top: 50px;
+}
+
+#mininavpane {
+    visibility: hidden;
+    padding-top:0;
+    padding-left:0;
+    height:0;
+}
+
+
+
+
+/* CONTENT LAYOUT */
+#contentpane {
+    width: 100%;
+    padding-left: 14em;
+    padding-right: 4em;
+    padding-top: 4em;
+    z-index: -1;
+}
+
+#infopane {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#poster {
+    flex: 50%;
+    max-width: 50%;
+    
+    /*
+    max-height: 90vh;
+    max-height: -moz-calc(100vh - 175px);
+    max-height: -webkit-calc(100vh - 175px);
+    max-height: -o-calc(100vh - 175px);
+    max-height: calc(100vh - 175px);
+    */
+}
+
+#posterimg
+{
+    width:100%;
+}
+
+#info {
+    padding-left: 2em;
+    flex: 50%;
+    max-width: 50%;
+}
+
+
+#downloadlinks {
+    list-style-type: none;
+    display-style: inline;
+	list-style-position: inside; 
+    padding-bottom: 3em;
+    height: 100px;
+}
+
+#downloadlinks li {
+    text-align: center;
+    float:left;
+    padding-right: 25px;
+}
+
+
+#downloadlinks img {
+    align:center;
+    width: 100%;
+}
+
+
+#linktable {
+    width:500px;
+}
+
+#mediapane {
+    width:100%;
+    padding-top: 4em;
+    padding-left: 0px;
+}
+
+#screenshot {
+    width: 100%;
+    padding-bottom:50px;
+
+}
+
+.videocontainer {
+	position:relative;
+	padding-bottom:56.25%;
+	margin-bottom:50px;
+	height:0;
+	overflow:hidden;
+}
+
+.videocontainer iframe {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+/* Thumbnail list, make this fancy later... ?  Probably not */
+#thumbpane {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.thumblist {
+    list-style-type: none;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.thumblist li {
+    flex: 33.333%;
+    max-width: 33.333%;
+}
+
+.thumbdiv {
+    margin-top: -3px; /* not sure why I need this */
+}
+
+.thumbdiv a {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbdiv img {
+    width:100%;
+}
+
+.thumbtitle {
+    position: absolute;
+    text-align: center;
+    margin-top: 40%;
+    width: 100%;
+    font-size:3.5em;
+    opacity:0;
+}
+
+.thumbdiv:active a{
+    opacity: 0.333;
+}
+
+.thumbdiv:hover img{
+    opacity: 0.4;
+}
+
+.thumbdiv:hover .thumbtitle {
+    opacity:1;
+}
+
+#credits {
+    align:center;
+    margin:1em auto;
+}
+
+#credits .job {
+    width: 300px;
+    text-align:right;
+    vertical-align:top;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    font-style: italic;
+}
+
+#credits .name {
+    width: 300px;
+    text-align:left;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    #contentpane {
+        padding-top: 2em;
+        padding-left: 2em;
+        padding-right: 0em;
+    }
+    #navpane {
+        display: none;
+        width:0;
+    }
+    #mininavpane {
+        visibility: visible;
+        height: 1em;
+        padding-top: 1em;
+        padding-left: 1em;
+
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    #contentpane {
+        padding-top: 2em;
+        padding-right: 2em;
+    }
+    #poster {
+        flex: 100%;
+        max-width: 100%;
+    }
+    #info {
+        padding-left: 0;
+        padding-top: 2em;
+
+        flex: 100%;
+        max-width: 100%;
+    }
+    .thumblist li {
+        flex: 50%;
+        max-width: 50%;
+    }
+    .thumbtitle {
+        font-size:2.5em;
+    }
+}
+
+@media (min-width:1000px) {
+    #contentpane {
+        padding-top: 4em;
+        padding-right: 4em;
+    }
+    #poster {
+        flex: 50%;
+        max-width: 50%;
+    }
+    #info {
+        padding-left: 2em;
+        padding-top: 0em;
+
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    
+}
+
+@media (min-width: 1500px) {
+    #contentpane {
+        padding-top: 4em;
+        padding-right: 14em;
+    }
+    #poster {
+        flex: 50%;
+        max-width: 575px;
+    }
+    #info {
+        padding-left: 4em;
+        padding-top: 0;
+
+        flex:50%;
+        max-width: 100%;
+    }
+}
+
+
+
+@media (min-width: 2000px) {
+   
+    #poster {
+        flex: 50%;
+        max-width: 800px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+

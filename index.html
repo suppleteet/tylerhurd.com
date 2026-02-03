@@ -1,38 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
-	       Remove this if you use the .htaccess -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-	<title>Tyler Hurd</title>
-	<meta name="description" content="" />
-	<meta name="author" content="Tyler" />
-	
-	<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="apple-touch-icon" href="images/favicon.png" />
-	
-
-    <!-- Java & CSS -->
-	<script src="text/js.js" type="text/javascript"></script>
-    <link href="text/css.css" rel="stylesheet" type="text/css" />	
-
-</head>
-
-<body onload="buildNavPane()">
-    
-    <div id="navpane" class="pane"><script>buildNavPane();</script></div>
-    
-   <div id="contentpane" class="pane">
-        
-        <div id="thumbpane" class="pane">
-            <script>buildThumbPane("Projects");</script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tyler Hurd | Creative Director</title>
+    <meta name="description" content="Creative director and prototype builder crafting character-led VR and interactive experiences." />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="./">Tyler Hurd</a>
+          <span class="logo-sub">Creative Director • Prototype Builder</span>
         </div>
-        
-    </div> <!-- END CONTENT-->
- 
- </body>
+        <nav class="nav">
+          <a href="./">Home</a>
+          <a href="./work/">Work</a>
+          <a href="./about/">About</a>
+          <a href="./resume/">Resume</a>
+                  </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero">
+        <div>
+          <div class="pill reveal">Creative Director • Prototype Builder • Character Systems</div>
+          <h1 class="hero-title reveal delay-1">Tyler Hurd</h1>
+          <p class="hero-sub reveal delay-2">
+            Creative director and character TD building playful VR, games, and interactive experiences.
+          </p>
+          <div class="hero-cta reveal delay-3">
+            <a class="button" href="mailto:tyler@tylerhurd.com">Email me</a>
+            <a class="button outline" href="./resume/">View resume</a>
+          </div>
+        </div>
+        <div class="hero-card reveal delay-2">
+          <img src="assets/img/me.jpg" alt="Portrait of Tyler Hurd" />
+          <div class="card-title">Creative leadership + hands-on prototyping</div>
+          <div class="card-meta">
+            20+ years building character-driven interactive experiences across VR, games, and advertising.
+          </div>
+        </div>
+      </section>
+
+      <section class="container section">
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-sub">
+          A snapshot of the projects that best represent my creative direction and character systems work.
+        </p>
+        <div class="card-grid">
+          <article class="card reveal">
+            <a class="card-link" href="./work/actuator/">
+              <img src="assets/img/projects/actuator.jpg" alt="Actuator poster" />
+              <div class="card-title">Actuator</div>
+              <div class="card-meta">Creator / Developer • 2019</div>
+              <div class="card-meta">
+                Real-time, physically based puppeteering workflow for VR characters.
+              </div>
+            </a>
+          </article>
+          <article class="card reveal">
+            <a class="card-link" href="./work/butts-vr/">
+              <img src="assets/img/projects/butts.jpg" alt="BUTTS VR poster" />
+              <div class="card-title">BUTTS VR</div>
+              <div class="card-meta">Creator / Director • 2014</div>
+              <div class="card-meta">Physically based, character-driven VR experience.</div>
+              <div class="tags">
+                <span class="tag">Most Innovative, Proto Awards</span>
+              </div>
+            </a>
+          </article>
+          <article class="card reveal">
+            <a class="card-link" href="./work/chocolate-vr/">
+              <img src="assets/img/projects/chocolate.jpg" alt="Chocolate VR poster" />
+              <div class="card-title">Chocolate VR</div>
+              <div class="card-meta">Creator / Director • 2017</div>
+              <div class="card-meta">Surreal animated VR short with painterly motion.</div>
+              <div class="tags">
+                <span class="tag">Artistic Achievement Award, Unity</span>
+              </div>
+            </a>
+          </article>
+          <article class="card reveal">
+            <a class="card-link" href="./work/chorus-vr/">
+              <img src="assets/img/projects/chorus.jpg" alt="Chorus VR poster" />
+              <div class="card-title">Chorus VR</div>
+              <div class="card-meta">Creator / Director • 2017</div>
+              <div class="card-meta">Music-driven animated VR experience.</div>
+              <div class="tags">
+                <span class="tag">Best Animated Experience, WVRF</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section">
+        <h2 class="section-title">Experience Snapshot</h2>
+        <div class="split">
+          <div class="list-item reveal">
+            <div class="card-title">Meta • Creative Director</div>
+            <div class="card-meta">2018–2026</div>
+          </div>
+          <div class="list-item reveal">
+            <div class="card-title">Gentle Manhands • Founder / Creator</div>
+            <div class="card-meta">2014–2020</div>
+          </div>
+          <div class="list-item reveal">
+            <div class="card-title">Double Fine • Senior Animator / Character TD</div>
+            <div class="card-meta">2003–2012</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-copy">© 2026 Tyler Hurd</div>
+      </div>
+    </footer>
+  </body>
 </html>

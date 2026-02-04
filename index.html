@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,109 +12,21 @@
     <header class="site-header">
       <div class="container">
         <div class="logo">
-          <a href="./">Tyler Hurd</a>
+          <a href="index.html">Tyler Hurd</a>
           <span class="logo-sub">Creative Director • Prototype Builder</span>
         </div>
         <nav class="nav">
-          <a href="./">Home</a>
-          <a href="./work/">Work</a>
-          <a href="./about/">About</a>
-          <a href="./resume/">Resume</a>
-                  </nav>
+          <a href="index.html">Work</a>
+          <a href="about.html">About</a>
+        </nav>
       </div>
     </header>
 
     <main>
-      <section class="container hero">
-        <div>
-          <div class="pill reveal">Creative Director • Prototype Builder • Character Systems</div>
-          <h1 class="hero-title reveal delay-1">Tyler Hurd</h1>
-          <p class="hero-sub reveal delay-2">
-            Creative director and character TD building playful VR, games, and interactive experiences.
-          </p>
-          <div class="hero-cta reveal delay-3">
-            <a class="button" href="mailto:tyler@tylerhurd.com">Email me</a>
-            <a class="button outline" href="./resume/">View resume</a>
-          </div>
-        </div>
-        <div class="hero-card reveal delay-2">
-          <img src="assets/img/me.jpg" alt="Portrait of Tyler Hurd" />
-          <div class="card-title">Creative leadership + hands-on prototyping</div>
-          <div class="card-meta">
-            20+ years building character-driven interactive experiences across VR, games, and advertising.
-          </div>
-        </div>
+      <section id="work" class="container section">
+        <div id="project-grid"></div>
       </section>
 
-      <section class="container section">
-        <h2 class="section-title">Featured Work</h2>
-        <p class="section-sub">
-          A snapshot of the projects that best represent my creative direction and character systems work.
-        </p>
-        <div class="card-grid">
-          <article class="card reveal">
-            <a class="card-link" href="./work/actuator/">
-              <img src="assets/img/projects/actuator.jpg" alt="Actuator poster" />
-              <div class="card-title">Actuator</div>
-              <div class="card-meta">Creator / Developer • 2019</div>
-              <div class="card-meta">
-                Real-time, physically based puppeteering workflow for VR characters.
-              </div>
-            </a>
-          </article>
-          <article class="card reveal">
-            <a class="card-link" href="./work/butts-vr/">
-              <img src="assets/img/projects/butts.jpg" alt="BUTTS VR poster" />
-              <div class="card-title">BUTTS VR</div>
-              <div class="card-meta">Creator / Director • 2014</div>
-              <div class="card-meta">Physically based, character-driven VR experience.</div>
-              <div class="tags">
-                <span class="tag">Most Innovative, Proto Awards</span>
-              </div>
-            </a>
-          </article>
-          <article class="card reveal">
-            <a class="card-link" href="./work/chocolate-vr/">
-              <img src="assets/img/projects/chocolate.jpg" alt="Chocolate VR poster" />
-              <div class="card-title">Chocolate VR</div>
-              <div class="card-meta">Creator / Director • 2017</div>
-              <div class="card-meta">Surreal animated VR short with painterly motion.</div>
-              <div class="tags">
-                <span class="tag">Artistic Achievement Award, Unity</span>
-              </div>
-            </a>
-          </article>
-          <article class="card reveal">
-            <a class="card-link" href="./work/chorus-vr/">
-              <img src="assets/img/projects/chorus.jpg" alt="Chorus VR poster" />
-              <div class="card-title">Chorus VR</div>
-              <div class="card-meta">Creator / Director • 2017</div>
-              <div class="card-meta">Music-driven animated VR experience.</div>
-              <div class="tags">
-                <span class="tag">Best Animated Experience, WVRF</span>
-              </div>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="container section">
-        <h2 class="section-title">Experience Snapshot</h2>
-        <div class="split">
-          <div class="list-item reveal">
-            <div class="card-title">Meta • Creative Director</div>
-            <div class="card-meta">2018–2026</div>
-          </div>
-          <div class="list-item reveal">
-            <div class="card-title">Gentle Manhands • Founder / Creator</div>
-            <div class="card-meta">2014–2020</div>
-          </div>
-          <div class="list-item reveal">
-            <div class="card-title">Double Fine • Senior Animator / Character TD</div>
-            <div class="card-meta">2003–2012</div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -122,5 +34,27 @@
         <div class="footer-copy">© 2026 Tyler Hurd</div>
       </div>
     </footer>
+
+    <div id="project-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true">
+        <button class="modal-close" type="button" aria-label="Close project details">×</button>
+        <div class="modal-content">
+          <div class="modal-media">
+            <button class="media-nav prev" type="button" aria-label="Previous media">‹</button>
+            <div class="media-strip" id="modal-media-strip"></div>
+            <button class="media-nav next" type="button" aria-label="Next media">›</button>
+          </div>
+          <div class="modal-text">
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <div class="project-meta" id="modal-meta"></div>
+            <div class="modal-details" id="modal-details"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/site.js?v=20260203"></script>
   </body>
 </html>

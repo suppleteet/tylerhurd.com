@@ -541,16 +541,34 @@ const backdrop = document.querySelector('.modal-backdrop');
 const prevButton = document.querySelector('.media-nav.prev');
 const nextButton = document.querySelector('.media-nav.next');
 const motionSettings = {
-  duration: 2600,
-  y: -4,
+  duration: 900,
+  y: -18,
   scale: 1.12,
   rotMax: 2.5,
-  z: 45,
-  overshoot: 1.08,
-  undershoot: 0.995,
-  settle1: 1.01,
-  rotLag: 0.3,
+  z: 90,
 };
+
+const elastic = (x) => {
+  if (x === 0 || x === 1) return x;
+  const c4 = (2 * Math.PI) / 3;
+  return Math.pow(2, -10 * x) * Math.sin((x * 10 - 0.75) * c4) + 1;
+};
+
+const stopMediaPlayback = () => {
+  if (!mediaStrip) return;
+  Array.from(mediaStrip.children).forEach((node) => {
+    if (node.tagName === 'VIDEO') {
+      node.pause();
+      return;
+    }
+    if (node.tagName === 'IFRAME') {
+      node.dataset.src = node.src;
+      node.src = 'about:blank';
+    }
+  });
+};
+
+let scrollStopTimer;
 
 const slugify = (value) =>
   value
@@ -664,6 +682,7 @@ function openModal(project) {
     if (item?.type === 'embed') {
       const iframe = document.createElement('iframe');
       iframe.src = item.src;
+      iframe.dataset.src = item.src;
       iframe.title = item.title || project.title;
       iframe.loading = 'lazy';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
@@ -681,6 +700,7 @@ function openModal(project) {
       mediaStrip.appendChild(video);
     }
   });
+  mediaStrip.classList.toggle('single-media', mediaStrip.children.length <= 1);
   mediaStrip.scrollTo({ left: 0, behavior: 'auto' });
 
   modal.classList.remove('hidden');
@@ -693,6 +713,7 @@ function closeModal() {
   if (!modal || modal.classList.contains('hidden') || modal.classList.contains('closing')) {
     return;
   }
+  stopMediaPlayback();
   modal.classList.add('closing');
   modal.classList.remove('show');
   modal.setAttribute('aria-hidden', 'true');
@@ -715,6 +736,20 @@ closeButton?.addEventListener('click', closeModal);
 backdrop?.addEventListener('click', closeModal);
 prevButton?.addEventListener('click', () => scrollMedia(-1));
 nextButton?.addEventListener('click', () => scrollMedia(1));
+mediaStrip?.addEventListener('scroll', () => {
+  if (scrollStopTimer) {
+    window.clearTimeout(scrollStopTimer);
+  }
+  stopMediaPlayback();
+  scrollStopTimer = window.setTimeout(() => {
+    const iframes = mediaStrip.querySelectorAll('iframe');
+    iframes.forEach((iframe) => {
+      if (iframe.dataset.src && iframe.src !== iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+      }
+    });
+  }, 200);
+});
 
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
@@ -727,37 +762,55 @@ renderProjects();
 function initCardSprings() {
   const cards = Array.from(document.querySelectorAll('.project-card'));
   const animateCard = (card, opts) => {
-    if (card._motion) {
-      card._motion.cancel();
+    if (card._rafId) {
+      cancelAnimationFrame(card._rafId);
     }
 
+    const base = card._state || { y: 0, z: 0, scale: 1, rot: 0 };
+    const target = {
+      y: opts.y || 0,
+      z: opts.z || 0,
+      scale: opts.scale || 1,
+      rot: opts.rotate ? (Math.random() * motionSettings.rotMax * 2 - motionSettings.rotMax) : 0,
+    };
+
+    if (opts.direction === 'out') {
+      target.y = 0;
+      target.z = 0;
+      target.scale = 1;
+      target.rot = 0;
+    }
+
+    const start = performance.now();
     const duration = motionSettings.duration;
-    const rotateTo = opts.rotate ? (Math.random() * motionSettings.rotMax * 2 - motionSettings.rotMax) : 0;
-    const yTo = opts.y;
-    const scaleTo = opts.scale;
-    const zTo = opts.z || 0;
+    const durTranslate = duration * 0.9;
+    const durScale = duration * 1.2;
+    const durRotate = duration * 1.4;
 
-    const keyframes = opts.direction === 'out'
-      ? [
-          { offset: 0, transform: card.style.transform || `translate3d(0, ${motionSettings.y}px, ${motionSettings.z}px) rotate(0deg) scale(${motionSettings.scale})`, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' },
-          { offset: 0.7, transform: 'translate3d(0, 0, 0) rotate(0deg) scale(1)', easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' },
-          { offset: 1, transform: 'translate3d(0, 0, 0) rotate(0deg) scale(1)' },
-        ]
-      : [
-          { offset: 0, transform: 'translate3d(0, 0, 0) rotate(0deg) scale(1)', easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' },
-          { offset: 0.3, transform: `translate3d(0, ${yTo * motionSettings.overshoot}px, ${zTo}px) rotate(0deg) scale(${scaleTo * 1.02})`, easing: 'cubic-bezier(0.25, 0.6, 0.3, 1)' },
-          { offset: 0.6, transform: `translate3d(0, ${yTo * motionSettings.undershoot}px, ${zTo}px) rotate(${rotateTo * motionSettings.rotLag}deg) scale(${scaleTo * 0.995})`, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' },
-          { offset: 0.88, transform: `translate3d(0, ${yTo * motionSettings.settle1}px, ${zTo}px) rotate(${rotateTo}deg) scale(${scaleTo * 1.002})`, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' },
-          { offset: 1, transform: `translate3d(0, ${yTo}px, ${zTo}px) rotate(${rotateTo}deg) scale(${scaleTo})` },
-        ];
+    const animate = (now) => {
+      const tTranslate = Math.min((now - start) / durTranslate, 1);
+      const tScale = Math.min((now - start) / durScale, 1);
+      const tRotate = Math.min((now - start) / durRotate, 1);
 
-    card._motion = card.animate(keyframes, {
-      duration,
-      fill: 'forwards',
-      easing: 'cubic-bezier(0.2, 0.6, 0.2, 1)',
-    });
+      const eTranslate = elastic(tTranslate);
+      const eScale = elastic(tScale);
+      const eRotate = elastic(tRotate);
 
-    return card._motion;
+      const y = base.y + (target.y - base.y) * eTranslate;
+      const z = base.z + (target.z - base.z) * eTranslate;
+      const scale = base.scale + (target.scale - base.scale) * eScale;
+      const rot = base.rot + (target.rot - base.rot) * eRotate;
+
+      card.style.transform = `translate3d(0, ${y}px, ${z}px) rotate(${rot}deg) scale(${scale})`;
+
+      card._state = { y, z, scale, rot };
+
+      if (tTranslate < 1 || tScale < 1 || tRotate < 1) {
+        card._rafId = requestAnimationFrame(animate);
+      }
+    };
+
+    card._rafId = requestAnimationFrame(animate);
   };
 
   cards.forEach((card) => {
@@ -773,10 +826,10 @@ function initCardSprings() {
 
     card.addEventListener('pointerleave', () => {
       card.classList.remove('is-hovered');
-      const animation = animateCard(card, { y: 0, scale: 1, rotate: false, z: 0, direction: 'out' });
-      animation.onfinish = () => {
+      animateCard(card, { y: 0, scale: 1, rotate: false, z: 0, direction: 'out' });
+      window.setTimeout(() => {
         card.style.zIndex = '';
-      };
+      }, motionSettings.duration * 1.2);
     });
   });
 }

@@ -40,12 +40,12 @@ const projects = [
         title: 'Old Friend VR trailer',
       },
       'work/old-friend-vr/cover.jpg',
-      'projects/oldfriend/OldFriendScreen1.jpg',
-      'projects/oldfriend/OldFriendScreen2.jpg',
-      'projects/oldfriend/OldFriendScreen3.jpg',
-      'projects/oldfriend/OldFriendScreen4.jpg',
-      'projects/oldfriend/OldFriendScreen5.jpg',
-      'projects/oldfriend/OldFriendScreen6.jpg',
+      'work/old-friend-vr/media/OldFriendScreen1.jpg',
+      'work/old-friend-vr/media/OldFriendScreen2.jpg',
+      'work/old-friend-vr/media/OldFriendScreen3.jpg',
+      'work/old-friend-vr/media/OldFriendScreen4.jpg',
+      'work/old-friend-vr/media/OldFriendScreen5.jpg',
+      'work/old-friend-vr/media/OldFriendScreen6.jpg',
     ],
     detailsHtml: `
       <h4>Overview</h4>
@@ -107,7 +107,7 @@ const projects = [
       </ul>
       <h4>Dance Party</h4>
       <a class="modal-link-card" href="http://tylerhurd.com/danceparty" target="_blank" rel="noopener">
-        <img src="projects/oldfriend/danceparty.jpg" alt="Dance Party" />
+        <img src="work/old-friend-vr/media/danceparty.jpg" alt="Dance Party" />
         <div>
           <div class="card-title">Dance Party</div>
           <div class="card-meta">The lovely people who created wicked dance moves for Old Friend.</div>
@@ -129,7 +129,6 @@ const projects = [
         <li><strong>Special Thanks:</strong> Melesande Perera, Rene Pinnell - Kaleidoscope VR, Mark De Pace - Ghost Robot, Chet Faliszek - Valve, Patrick Hackett, Drew Skillman, Paul Dubois - Google, Joseph Virskus</li>
       </ul>
     `,
-    link: 'projects/oldfriend/',
   },
 
   {
@@ -146,15 +145,15 @@ const projects = [
         title: 'Chocolate VR trailer',
       },
       'work/chocolate-vr/cover.jpg',
-      'projects/chocolate/ChocolateVRScreenShot1.jpg',
-      'projects/chocolate/ChocolateVRScreenShot2.jpg',
-      'projects/chocolate/ChocolateVRScreenShot3.jpg',
-      'projects/chocolate/ChocolateVRScreenShot4.jpg',
-      'projects/chocolate/ChocolateVRScreenShot5.jpg',
-      'projects/chocolate/ChocolateVRScreenShot6.jpg',
-      'projects/chocolate/ChocolateVRScreenShot7.jpg',
-      'projects/chocolate/ChocolateVRScreenShot8.jpg',
-      'projects/chocolate/ChocolateVRScreenShot9.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot1.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot2.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot3.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot4.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot5.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot6.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot7.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot8.jpg',
+      'work/chocolate-vr/media/ChocolateVRScreenShot9.jpg',
     ],
     detailsHtml: `
       <h4>Overview</h4>
@@ -228,7 +227,6 @@ const projects = [
         <li><strong>Special Thanks:</strong> Melesande Perera, David Farrell, Cabbibo, Joseph Virskus, Mac Lotze, Subpac, Oculus, HTC, Valve</li>
       </ul>
     `,
-    link: 'projects/chocolate/',
   },
 
   {
@@ -245,11 +243,11 @@ const projects = [
         title: 'Beach Body Bros trailer',
       },
       'work/beach-body-bros/cover.jpg',
-      'projects/beachbodybros/BBB_Screenshot1.jpg',
-      'projects/beachbodybros/BBB_Screenshot2.jpg',
-      'projects/beachbodybros/BBB_Screenshot3.jpg',
-      'projects/beachbodybros/BBB_Screenshot4.jpg',
-      'projects/beachbodybros/BBB_Screenshot5.jpg',
+      'work/beach-body-bros/media/BBB_Screenshot1.jpg',
+      'work/beach-body-bros/media/BBB_Screenshot2.jpg',
+      'work/beach-body-bros/media/BBB_Screenshot3.jpg',
+      'work/beach-body-bros/media/BBB_Screenshot4.jpg',
+      'work/beach-body-bros/media/BBB_Screenshot5.jpg',
     ],
     detailsHtml: `
       <h4>Overview</h4>
@@ -292,7 +290,6 @@ const projects = [
         <li><strong>Special Thanks:</strong> Oren Hurd</li>
       </ul>
     `,
-    link: 'projects/beachbodybros/',
   },
 
   {
@@ -309,10 +306,10 @@ const projects = [
         title: 'Chorus VR trailer',
       },
       'work/chorus-vr/cover.jpg',
-      'projects/chorus/ChorusVRScreenshot1.jpg',
-      'projects/chorus/ChorusVRScreenshot2.jpg',
-      'projects/chorus/ChorusVRScreenshot3.jpg',
-      'projects/chorus/ChorusVRScreenshot4.jpg',
+      'work/chorus-vr/media/ChorusVRScreenshot1.jpg',
+      'work/chorus-vr/media/ChorusVRScreenshot2.jpg',
+      'work/chorus-vr/media/ChorusVRScreenshot3.jpg',
+      'work/chorus-vr/media/ChorusVRScreenshot4.jpg',
     ],
     detailsHtml: `
       <h4>Overview</h4>
@@ -355,7 +352,6 @@ const projects = [
         <li><strong>Special Thanks:</strong> Melesande Hurd, Joe Virskus, Subpac, HTC, Dell</li>
       </ul>
     `,
-    link: 'projects/chorus/',
   },
 
   {
@@ -367,11 +363,11 @@ const projects = [
     image: 'work/butts-vr/cover.jpg',
     media: [
       'work/butts-vr/cover.jpg',
-      'projects/butts/BUTTSScreen1.jpg',
-      'projects/butts/BUTTSScreen2.jpg',
-      'projects/butts/BUTTSScreen3.jpg',
-      'projects/butts/BUTTSScreen4.jpg',
-      'projects/butts/BUTTSScreen5.jpg',
+      'work/butts-vr/media/BUTTSScreen1.jpg',
+      'work/butts-vr/media/BUTTSScreen2.jpg',
+      'work/butts-vr/media/BUTTSScreen3.jpg',
+      'work/butts-vr/media/BUTTSScreen4.jpg',
+      'work/butts-vr/media/BUTTSScreen5.jpg',
     ],
     detailsHtml: `
       <h4>Overview</h4>
@@ -415,7 +411,6 @@ const projects = [
         <li><strong>Special Thanks:</strong> Kristjan Zaklynsky, Melkorka Helgoadottir, Jesse Johansen, Drew Skillman, Patrick Hackett</li>
       </ul>
     `,
-    link: 'projects/butts/',
   },
 
   {
@@ -462,7 +457,6 @@ const projects = [
       </p>
       <p><em>More coming soon...</em></p>
     `,
-    link: 'projects/actuator/',
   },
   {
     title: 'Sony PlayStation 4',
@@ -656,15 +650,10 @@ function openModal(project) {
   if (!project) return;
   modalTitle.textContent = project.title;
   modalDescription.textContent = project.description;
-  const linkHtml = project.link
-    ? `<div><a href="${project.link}" target="_blank" rel="noopener">Project page</a></div>`
-    : '';
-
   modalMeta.innerHTML = `
     <div>Year: ${project.year}</div>
     <div>Role: ${project.role}</div>
     <div>Category: ${project.category}</div>
-    ${linkHtml}
   `;
   modalDetails.innerHTML = project.detailsHtml || '';
   modalDetails.style.display = project.detailsHtml ? 'grid' : 'none';

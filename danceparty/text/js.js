@@ -150,7 +150,7 @@ function build_page( hash_nav ) {
 
             // heading
             the_html = '<p style="font-size:2em;"><b>OLD FRIEND DANCE PARTY</b></p><br/>'
-            the_html += '<p>The following stupid fun dance moves were performed as inspiration for the animation in the VR music video <a href="http://tylerhurd.com/projects/oldfriend/">Old Friend</a> by <a href="http://www.future-islands.com/">Future Islands</a>, presented by <a href="http://wevr.com">Wevr</a>, created by <a href="http://tylerhurd.com">Tyler Hurd</a>.'
+            the_html += '<p>The following stupid fun dance moves were performed as inspiration for the animation in the VR music video <a href="/#project-old-friend-vr">Old Friend</a> by <a href="http://www.future-islands.com/">Future Islands</a>, presented by <a href="http://wevr.com">Wevr</a>, created by <a href="http://tylerhurd.com">Tyler Hurd</a>.'
             the_html += '</p><br/>'
             
             // build the list

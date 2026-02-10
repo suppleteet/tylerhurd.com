@@ -5,9 +5,8 @@ const projects = [
     role: 'Tech-Artist / Character TD',
     category: 'Meta Spatial Computing',
     description: 'Quest 3 launch experience focused on first-contact spatial interactions.',
-    image: 'work/first-encounters/cover.jpg',
+    hoverVideo: 'work/first-encounters/cover.mp4',
     media: [
-      'work/first-encounters/cover.jpg',
       'work/first-encounters/media/FirstEncounters1.webp',
       'work/first-encounters/media/FirstEncounters2.webp',
       'work/first-encounters/media/FirstEncounters3.webp',
@@ -22,7 +21,14 @@ const projects = [
     category: 'Meta Spatial Computing',
     description: 'AR title exploring mixed reality storytelling and interaction.',
     image: 'work/the-world-beyond/cover.jpg',
-    media: ['work/the-world-beyond/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://youtu.be/DB37xEBHQzo',
+        title: 'The World Beyond trailer',
+      },
+      'work/the-world-beyond/cover.jpg',
+    ],
   },
   {
     title: 'Supernatural',
@@ -31,10 +37,31 @@ const projects = [
     category: 'Meta Spatial Computing',
     description: 'Fitness experience with movement-driven choreography and flow.',
     image: 'work/supernatural/cover.jpg',
-    media: ['work/supernatural/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://youtu.be/dz_2h6vaYKQ',
+        title: 'Supernatural trailer',
+      },
+    ],
   },
   {
-    title: 'Old Friend VR',
+    title: 'Oculus Medium',
+    year: 2019,
+    role: 'Developer In Residence',
+    category: 'Meta Spatial Computing',
+    description: 'VR sculpting tool. Helped develop export pipelines and used it for Beach Body Bros.',
+    hoverVideo: 'work/oculus-medium/cover.mp4',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://youtu.be/KvlaY-lEILU',
+        title: 'Oculus Medium trailer',
+      },
+    ],
+  },
+  {
+    title: 'Old Friend',
     year: 2016,
     role: 'Creator / Director',
     category: 'Originals',
@@ -59,7 +86,7 @@ const projects = [
   },
 
   {
-    title: 'Chocolate VR',
+    title: 'Chocolate',
     year: 2017,
     role: 'Creator / Director',
     category: 'Originals',
@@ -110,7 +137,7 @@ const projects = [
   },
 
   {
-    title: 'Chorus VR',
+    title: 'Chorus',
     year: 2017,
     role: 'Creator / Director',
     category: 'Originals',
@@ -240,12 +267,13 @@ const projects = [
     year: 2012,
     role: 'Senior Animator / Character TD',
     category: 'Shipped Games',
-    description: 'Motion-driven character animation and effects work.',
-    image: 'work/kinect-party/cover.jpg',
+    description: '(AKA Kinect Party) Kinect based mini-games, character animation and effects work.',
+    image: '',
+    hoverVideo: 'work/kinect-party/cover.mp4',
     media: [
       {
         type: 'embed',
-        src: 'https://www.youtube.com/embed/jhoITmb4518',
+        src: 'https://youtu.be/YdNnVqvXk2Y',
         title: 'Happy Action Theater',
       },
     ],
@@ -256,8 +284,15 @@ const projects = [
     role: 'Senior Animator / Character TD',
     category: 'Shipped Games',
     description: 'Kinect-based character performance and animation support.',
-    image: 'work/once-upon-a-monster/cover.jpg',
-    media: ['work/once-upon-a-monster/cover.jpg'],
+    hoverVideo: 'work/once-upon-a-monster/cover.mp4',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://www.youtube.com/watch?v=Vp9Ew73iWhQ',
+        title: 'Once Upon A Monster trailer',
+      },
+      'work/once-upon-a-monster/cover.jpg',
+    ],
   },
   {
     title: 'Costume Quest',
@@ -266,7 +301,14 @@ const projects = [
     category: 'Shipped Games',
     description: 'Stylized character animation and rigging.',
     image: 'work/costume-quest/cover.jpg',
-    media: ['work/costume-quest/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://www.youtube.com/watch?v=p-xYP8krxxQ',
+        title: 'Costume Quest trailer',
+      },
+      'work/costume-quest/cover.jpg',
+    ],
   },
   {
     title: 'Brutal Legend',
@@ -275,7 +317,14 @@ const projects = [
     category: 'Shipped Games',
     description: 'Character animation and tooling in a large-scale action game.',
     image: 'work/brutal-legend/cover.jpg',
-    media: ['work/brutal-legend/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://www.youtube.com/watch?v=apbgshuBe6M',
+        title: 'Brutal Legend trailer',
+      },
+      'work/brutal-legend/cover.jpg',
+    ],
   },
   {
     title: 'Psychonauts',
@@ -284,7 +333,14 @@ const projects = [
     category: 'Shipped Games',
     description: 'Animated, modeled, and rigged characters; built tools in Maya.',
     image: 'work/psychonauts/cover.jpg',
-    media: ['work/psychonauts/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://youtu.be/aDbDShqvc_o',
+        title: 'Psychonauts trailer',
+      },
+      'work/psychonauts/cover.jpg',
+    ],
   },
 ];
 
@@ -415,7 +471,7 @@ function renderProjects() {
     Originals:
       'Original VR experiences I designed and created solo or with small teams, short music video format, lots of festival premieres and a few awards.',
     'Meta Spatial Computing':
-      '<em>[NOTE: Most of my work at Meta was under NDA]</em> These are a few shipped products I contributed to.',
+      '<strong>[NOTE: My R&amp;D prototypes were under NDA]</strong>  These are a few shipped products I contributed to.',
     Advertising:
       'A few select works during 2 years freelancing on advertisements in NYC.',
     'Shipped Games':

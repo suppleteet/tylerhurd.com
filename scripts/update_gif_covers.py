@@ -33,38 +33,30 @@ def find_project_for_gif(name: str) -> str | None:
     return None
 
 
-def update_site_js(covers: dict[str, Path]) -> None:
+def update_site_js(covers: dict[str, Path]) -> list[str]:
     js_path = ROOT / "assets/js/site.js"
     text = js_path.read_text(encoding="utf-8")
+    logs: list[str] = []
     for project_path, video_path in covers.items():
         rel = video_path.as_posix()
         project_prefix = f"{project_path}/"
-        pattern = rf"(image:\s*')({re.escape(project_prefix)}[^']+)(')"
-        match = re.search(pattern, text)
-        if match:
-            current_image = match.group(2)
-            static_candidates = [
-                f"{project_prefix}cover.jpg",
-                f"{project_prefix}cover.png",
-                f"{project_prefix}cover.webp",
-                f"{project_prefix}cover.svg",
-            ]
-            static_image = next((p for p in static_candidates if (ROOT / p).exists()), current_image)
-
-            def image_repl(m: re.Match) -> str:
-                return f"{m.group(1)}{static_image}{m.group(3)}"
-
-            text = re.sub(pattern, image_repl, text, count=1)
-
         hover_exists = re.search(rf"hoverVideo:\s*'[^']*{re.escape(project_prefix)}[^']*'", text)
-        if not hover_exists and rel:
-            hover_pattern = rf"(image:\s*'{re.escape(project_prefix)}[^']*'\s*\n)"
+        image_pattern = rf"(?m)^(?P<indent>\s*)image:\s*'{re.escape(project_prefix)}[^']*'\s*,\s*$"
 
-            def hover_repl(m: re.Match) -> str:
-                return f"{m.group(1)}    hoverVideo: '{rel}',\n"
+        def image_repl(m: re.Match) -> str:
+            indent = m.group("indent")
+            if hover_exists or not rel:
+                logs.append(f"{project_path}: image cleared for video cover")
+                return f"{indent}image: '',"
+            logs.append(f"{project_path}: image cleared for video cover")
+            logs.append(f"{project_path}: added hoverVideo {rel}")
+            return f"{indent}image: '',\n{indent}hoverVideo: '{rel}',"
 
-            text = re.sub(hover_pattern, hover_repl, text, count=1)
+        text, count = re.subn(image_pattern, image_repl, text, count=1)
+        if count == 0:
+            logs.append(f"{project_path}: image line not found to update")
     js_path.write_text(text, encoding="utf-8")
+    return logs
 
 
 def main() -> None:
@@ -72,6 +64,7 @@ def main() -> None:
         raise SystemExit(f"MP4 folder not found: {MEDIA_DIR}")
 
     covers: dict[str, Path] = {}
+    removed_covers: list[str] = []
     for video in MEDIA_DIR.glob("*.mp4"):
         project_dir = find_project_for_gif(video.stem)
         if not project_dir:
@@ -80,11 +73,21 @@ def main() -> None:
         project_path.mkdir(parents=True, exist_ok=True)
         cover_path = project_path / "cover.mp4"
         shutil.copy2(video, cover_path)
+        cover_jpg = project_path / "cover.jpg"
+        if cover_jpg.exists():
+            cover_jpg.unlink()
+            removed_covers.append(str(project_dir))
         covers[project_dir] = cover_path
 
     if covers:
-        update_site_js(covers)
+        logs = update_site_js(covers)
         print(f"Updated {len(covers)} cover video(s).")
+        for line in logs:
+            print(f"- {line}")
+        if removed_covers:
+            print("Removed cover.jpg for:")
+            for item in removed_covers:
+                print(f"  - {item}")
     else:
         print("No matching MP4s found.")
 

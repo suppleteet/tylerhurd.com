@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Old+Uyghur&family=Roboto:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Roboto:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 
 :root {
   --bg: #ffffff;
@@ -76,8 +77,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.55);
+  background: transparent;
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -91,9 +93,9 @@ a {
 }
 
 .logo a {
-  font-family: "Noto Serif Old Uyghur", serif;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-family: "Cal Sans", serif;
+  font-size: 2.0rem;
+  font-weight: 200;
   letter-spacing: 0.02em;
 }
 
@@ -142,7 +144,7 @@ main {
 }
 
 .hero-title {
-  font-family: "Fraunces", serif;
+  font-family: "Cal Sans", serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin: 0 0 8px;
 }
@@ -194,6 +196,21 @@ main {
   margin: 0 auto 8px;
 }
 
+.about-hero {
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.about-hero img {
+  width: 160px;
+  height: 160px;
+  border-radius: 999px;
+  object-fit: cover;
+  margin: 0;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -210,16 +227,16 @@ main {
 }
 
 .section-title {
-  font-family: "Noto Serif Old Uyghur", serif;
+  font-family: "Cal Sans", serif;
   font-size: 1.5rem;
   margin: 0 0 8px;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 .section-sub {
   color: var(--muted);
   max-width: 680px;
-  font-size: 0.92rem;
+  font-size: 0.78rem;
 }
 
 .card-grid {
@@ -281,6 +298,16 @@ main {
   object-fit: cover;
 }
 
+.project-card .card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .project-card.is-hovered {
   box-shadow: 0 22px 50px rgba(12, 16, 20, 0.12);
   z-index: 10;
@@ -295,10 +322,12 @@ main {
   position: absolute;
   inset: auto 0 0 0;
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--ink);
-  font-weight: 500;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
   letter-spacing: 0.01em;
+  text-align: center;
+  z-index: 2;
 }
 
 .card:hover {
@@ -386,7 +415,7 @@ main {
   inset: 0;
   display: grid;
   place-items: center;
-  z-index: 30;
+  z-index: 200;
   padding: 90px 32px 40px;
 }
 
@@ -460,28 +489,63 @@ main {
 .modal-content {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: stretch;
   gap: 0;
   height: 100%;
+  min-height: 0;
 }
 
 .modal-media {
   position: relative;
   background: #ffffff;
   height: 100%;
-  display: flex;
-  align-items: stretch;
+  display: block;
+  align-self: stretch;
+  min-height: 0;
 }
 
 .media-strip {
+  position: absolute;
+  inset: 0;
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  gap: 16px;
-  padding: 16px;
-  scroll-padding: 0 16px;
-  align-items: center;
+  gap: 0;
+  padding: 0;
+  scroll-padding: 0;
+  align-items: stretch;
   height: 100%;
+  min-height: 0;
+}
+
+.media-item {
+  flex: 0 0 100%;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  scroll-snap-align: center;
+}
+
+.media-embed {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  margin: 0 auto;
+}
+
+.media-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .media-strip.single-media {
@@ -508,24 +572,18 @@ main {
   scrollbar-width: thin;
 }
 
-.media-strip img,
-.media-strip video {
+.media-item img,
+.media-item video {
   width: 100%;
-  flex: 0 0 auto;
-  scroll-snap-align: center;
   object-fit: contain;
-  max-height: 520px;
+  height: auto;
+  max-height: 100%;
   border-radius: 14px;
 }
 
-.media-strip iframe {
-  width: 100%;
-  flex: 0 0 auto;
-  scroll-snap-align: center;
+.media-item iframe {
   border: none;
   border-radius: 14px;
-  aspect-ratio: 16 / 9;
-  max-height: 520px;
   background: #000;
 }
 
@@ -642,6 +700,8 @@ main {
   gap: 8px;
   align-content: start;
   overflow-y: auto;
+  height: 100%;
+  min-height: 0;
 }
 
 #modal-description {
@@ -684,8 +744,33 @@ main {
 }
 
 @media (max-width: 900px) {
+  .modal {
+    padding: 72px 16px 24px;
+    align-items: flex-start;
+  }
+
+  .modal-card {
+    width: 100%;
+    height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
+    border-radius: 14px;
+  }
+
   .modal-content {
     grid-template-columns: 1fr;
+    grid-template-rows: minmax(220px, 45vh) 1fr;
+  }
+
+  .modal-media {
+    min-height: 220px;
+  }
+
+  .modal-text {
+    padding: 18px;
+  }
+
+  .media-item {
+    padding: 12px;
   }
 }
 
@@ -699,6 +784,34 @@ main {
 .list {
   display: grid;
   gap: 10px;
+}
+
+.about-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.about-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(12, 16, 20, 0.12);
 }
 
 .list-item {
@@ -771,8 +884,40 @@ main {
 }
 
 @media (max-width: 720px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .site-header .container {
+    padding: 10px 18px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .logo-sub {
+    display: none;
+  }
+
   .nav {
-    width: 100%;
-    justify-content: flex-start;
+    width: auto;
+    gap: 12px;
+  }
+
+  .nav a {
+    font-size: 0.8rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

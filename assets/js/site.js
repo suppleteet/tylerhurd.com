@@ -3,43 +3,51 @@ const projects = [
     title: 'First Encounters',
     year: 2023,
     role: 'Tech-Artist / Character TD',
-    category: 'Meta VR',
+    category: 'Meta Spatial Computing',
     description: 'Quest 3 launch experience focused on first-contact spatial interactions.',
-    image: 'work/first-encounters/cover.svg',
-    media: ['work/first-encounters/cover.svg'],
+    image: 'work/first-encounters/cover.jpg',
+    media: [
+      'work/first-encounters/cover.jpg',
+      'work/first-encounters/media/FirstEncounters1.webp',
+      'work/first-encounters/media/FirstEncounters2.webp',
+      'work/first-encounters/media/FirstEncounters3.webp',
+      'work/first-encounters/media/FirstEncounters4.webp',
+      'work/first-encounters/media/FirstEncounters5.webp',
+    ],
   },
   {
     title: 'The World Beyond',
     year: 2020,
     role: 'Tech-Artist / Character TD',
-    category: 'Meta VR',
+    category: 'Meta Spatial Computing',
     description: 'AR title exploring mixed reality storytelling and interaction.',
-    image: 'work/the-world-beyond/cover.svg',
-    media: ['work/the-world-beyond/cover.svg'],
+    image: 'work/the-world-beyond/cover.jpg',
+    media: ['work/the-world-beyond/cover.jpg'],
   },
   {
     title: 'Supernatural',
     year: 2019,
     role: 'Design Contributor',
-    category: 'Meta VR',
+    category: 'Meta Spatial Computing',
     description: 'Fitness experience with movement-driven choreography and flow.',
-    image: 'work/supernatural/cover.svg',
-    media: ['work/supernatural/cover.svg'],
+    image: 'work/supernatural/cover.jpg',
+    media: ['work/supernatural/cover.jpg'],
   },
   {
     title: 'Old Friend VR',
     year: 2016,
     role: 'Creator / Director',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Emotional, character-forward VR narrative.',
-    image: 'work/old-friend-vr/cover.jpg',
+    image: '',
+    hoverVideo: 'work/old-friend-vr/cover.mp4',
     media: [
+      'work/old-friend-vr/cover.jpg',
       {
         type: 'embed',
         src: 'https://www.youtube.com/embed/gyLAE7aR92c',
         title: 'Old Friend VR trailer',
       },
-      'work/old-friend-vr/cover.jpg',
       'work/old-friend-vr/media/OldFriendScreen1.jpg',
       'work/old-friend-vr/media/OldFriendScreen2.jpg',
       'work/old-friend-vr/media/OldFriendScreen3.jpg',
@@ -54,16 +62,17 @@ const projects = [
     title: 'Chocolate VR',
     year: 2017,
     role: 'Creator / Director',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Surreal animated VR short with painterly motion.',
-    image: 'work/chocolate-vr/cover.jpg',
+    image: '',
+    hoverVideo: 'work/chocolate-vr/cover.mp4',
     media: [
+      'work/chocolate-vr/cover.jpg',
       {
         type: 'embed',
         src: 'https://www.youtube.com/embed/_r5pvZlW2pk',
         title: 'Chocolate VR trailer',
       },
-      'work/chocolate-vr/cover.jpg',
       'work/chocolate-vr/media/ChocolateVRScreenShot1.jpg',
       'work/chocolate-vr/media/ChocolateVRScreenShot2.jpg',
       'work/chocolate-vr/media/ChocolateVRScreenShot3.jpg',
@@ -81,16 +90,16 @@ const projects = [
     title: 'Beach Body Bros',
     year: 2018,
     role: 'Creator / Director',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Character comedy with stylized performance capture.',
-    image: 'work/beach-body-bros/cover.jpg',
+    hoverVideo: 'work/beach-body-bros/cover.mp4',
     media: [
+      'work/beach-body-bros/cover.jpg',
       {
         type: 'embed',
         src: 'https://www.youtube.com/embed/8HZ_J62KgKU',
         title: 'Beach Body Bros trailer',
       },
-      'work/beach-body-bros/cover.jpg',
       'work/beach-body-bros/media/BBB_Screenshot1.jpg',
       'work/beach-body-bros/media/BBB_Screenshot2.jpg',
       'work/beach-body-bros/media/BBB_Screenshot3.jpg',
@@ -104,16 +113,16 @@ const projects = [
     title: 'Chorus VR',
     year: 2017,
     role: 'Creator / Director',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Music-driven animated VR experience.',
-    image: 'work/chorus-vr/cover.jpg',
+    hoverVideo: 'work/chorus-vr/cover.mp4',
     media: [
+      'work/chorus-vr/cover.jpg',
       {
         type: 'embed',
-        src: 'https://www.youtube.com/embed/_r5pvZlW2pk',
+        src: 'https://youtu.be/nnfrROjKHaM',
         title: 'Chorus VR trailer',
       },
-      'work/chorus-vr/cover.jpg',
       'work/chorus-vr/media/ChorusVRScreenshot1.jpg',
       'work/chorus-vr/media/ChorusVRScreenshot2.jpg',
       'work/chorus-vr/media/ChorusVRScreenshot3.jpg',
@@ -126,9 +135,9 @@ const projects = [
     title: 'BUTTS VR',
     year: 2014,
     role: 'Creator / Director',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Physically based, character-driven VR experience.',
-    image: 'work/butts-vr/cover.jpg',
+    hoverVideo: 'work/butts-vr/cover.mp4',
     media: [
       'work/butts-vr/cover.jpg',
       'work/butts-vr/media/BUTTSScreen1.jpg',
@@ -144,9 +153,9 @@ const projects = [
     title: 'Actuator',
     year: 2019,
     role: 'Creator / Developer',
-    category: 'VR Originals',
+    category: 'Originals',
     description: 'Real-time, physically based puppeteering workflow for VR characters.',
-    image: 'work/actuator/cover.jpg',
+    hoverVideo: 'work/actuator/cover.mp4',
     media: [
       {
         type: 'embed',
@@ -163,13 +172,36 @@ const projects = [
     detailsPath: 'work/actuator/details.html',
   },
   {
+    title: 'Polly Pocket',
+    year: 2013,
+    role: 'Solo 3D Animator / Character TD',
+    category: 'Advertising',
+    description: 'Solo 3D animation, character TD work for Polly, camera, and timing.',
+    image: '',
+    hoverVideo: 'work/polly-pocket/cover.mp4',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://player.vimeo.com/video/62657901',
+        title: 'Polly Pocket',
+      },
+    ],
+  },
+
+  {
     title: 'Sony PlayStation 4',
     year: 2014,
     role: 'Freelance Senior Animator / Character TD',
     category: 'Advertising',
     description: 'Animation and pipeline work at The Mill.',
-    image: 'work/sony-playstation-4/cover.svg',
-    media: ['work/sony-playstation-4/cover.svg'],
+    image: 'work/sony-playstation-4/cover.jpg',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://www.youtube.com/embed/_B8PK-eg2QY',
+        title: 'Sony PlayStation 4',
+      },
+    ],
   },
   {
     title: 'Froot Loops',
@@ -177,8 +209,31 @@ const projects = [
     role: 'Freelance Senior Animator / Character TD',
     category: 'Advertising',
     description: 'Character animation at Nathan Love.',
-    image: 'work/froot-loops/cover.svg',
-    media: ['work/froot-loops/cover.svg'],
+    image: '',
+    hoverVideo: 'work/froot-loops/cover.mp4',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://player.vimeo.com/video/65061922',
+        title: 'Froot Loops',
+      },
+    ],
+  },
+  {
+    title: "Uncle Ben's",
+    modalTitle: "Uncle Ben's, Teach Your Children",
+    year: 2014,
+    role: 'Sole Animator / Character TD',
+    category: 'Advertising',
+    description: "Sole animator and character TD for the Uncle Ben's spot.",
+    image: 'work/uncle-bens/cover.jpg',
+    media: [
+      {
+        type: 'embed',
+        src: 'https://vimeo.com/125635156',
+        title: "Uncle Ben's, Teach Your Children",
+      },
+    ],
   },
   {
     title: 'Happy Action Theater',
@@ -187,7 +242,13 @@ const projects = [
     category: 'Shipped Games',
     description: 'Motion-driven character animation and effects work.',
     image: 'work/kinect-party/cover.jpg',
-    media: ['work/kinect-party/cover.jpg'],
+    media: [
+      {
+        type: 'embed',
+        src: 'https://www.youtube.com/embed/jhoITmb4518',
+        title: 'Happy Action Theater',
+      },
+    ],
   },
   {
     title: 'Once Upon A Monster',
@@ -256,19 +317,36 @@ const elastic = (x) => {
 
 const stopMediaPlayback = () => {
   if (!mediaStrip) return;
-  Array.from(mediaStrip.children).forEach((node) => {
-    if (node.tagName === 'VIDEO') {
-      node.pause();
-      return;
-    }
-    if (node.tagName === 'IFRAME') {
-      node.dataset.src = node.src;
-      node.src = 'about:blank';
-    }
+  mediaStrip.querySelectorAll('video').forEach((video) => {
+    video.pause();
+  });
+  mediaStrip.querySelectorAll('iframe').forEach((frame) => {
+    frame.dataset.src = frame.src;
+    frame.src = 'about:blank';
+  });
+};
+
+const pauseInlineVideos = () => {
+  if (!mediaStrip) return;
+  mediaStrip.querySelectorAll('video').forEach((video) => {
+    video.pause();
   });
 };
 
 let scrollStopTimer;
+let programmaticScroll = false;
+const resetMediaScroll = () => {
+  if (!mediaStrip) return;
+  programmaticScroll = true;
+  mediaStrip.style.scrollBehavior = 'auto';
+  mediaStrip.scrollLeft = 0;
+  mediaStrip.scrollTo({ left: 0, behavior: 'auto' });
+  window.setTimeout(() => {
+    mediaStrip.scrollLeft = 0;
+    mediaStrip.style.scrollBehavior = '';
+    programmaticScroll = false;
+  }, 60);
+};
 
 const slugify = (value) =>
   value
@@ -286,10 +364,29 @@ function buildProjectCard(project) {
   project.slug = slug;
   card.id = `project-${slug}`;
   card.setAttribute('data-project', slug);
-  card.innerHTML = `
-    <img src="${project.image}" alt="${project.title} cover" />
-    <div class="project-title">${project.title}</div>
-  `;
+  const titleHtml = `<div class="project-title">${project.title}</div>`;
+  const imageHtml = project.image
+    ? `<img src="${project.image}" alt="${project.title} cover" />`
+    : '';
+  const showVideoOnly = !project.image && project.hoverVideo;
+  const videoHtml = showVideoOnly
+    ? `<video class="card-video" muted loop playsinline preload="auto" autoplay src="${project.hoverVideo}"></video>`
+    : '';
+  card.innerHTML = `${imageHtml}${videoHtml}${titleHtml}`;
+  const img = card.querySelector('img');
+  if (img) {
+    img.dataset.static = project.image;
+    if (project.hoverImage) {
+      img.dataset.hover = project.hoverImage;
+    }
+  }
+  const cardVideo = card.querySelector('.card-video');
+  if (cardVideo) {
+    card.classList.add('has-video-only');
+    cardVideo.addEventListener('canplay', () => {
+      cardVideo.play().catch(() => {});
+    });
+  }
   card.addEventListener('click', () => {
     history.replaceState(null, '', `#project-${slug}`);
     openModal(project);
@@ -300,8 +397,8 @@ function buildProjectCard(project) {
 function renderProjects() {
   if (!projectGrid) return;
   const categories = [
-    { id: 'VR Originals', title: 'VR Originals' },
-    { id: 'Meta VR', title: 'Meta VR' },
+    { id: 'Originals', title: 'Originals' },
+    { id: 'Meta Spatial Computing', title: 'Meta Spatial Computing' },
     { id: 'Shipped Games', title: 'Shipped Games' },
     { id: 'Advertising', title: 'Advertising' },
   ];
@@ -314,11 +411,22 @@ function renderProjects() {
     'Actuator',
   ];
 
+  const categoryDescriptions = {
+    Originals:
+      'Original VR experiences I designed and created solo or with small teams, short music video format, lots of festival premieres and a few awards.',
+    'Meta Spatial Computing':
+      '<em>[NOTE: Most of my work at Meta was under NDA]</em> These are a few shipped products I contributed to.',
+    Advertising:
+      'A few select works during 2 years freelancing on advertisements in NYC.',
+    'Shipped Games':
+      'Character TD / Animator for 9 years at Double Fine Productions.',
+  };
+
   categories.forEach((category) => {
     const items = projects
       .filter((project) => project.category === category.id)
       .sort((a, b) => {
-        if (category.id === 'VR Originals') {
+        if (category.id === 'Originals') {
           return vrOrder.indexOf(a.title) - vrOrder.indexOf(b.title);
         }
         return b.year - a.year;
@@ -328,7 +436,11 @@ function renderProjects() {
 
     const section = document.createElement('section');
     section.className = 'section';
-    section.innerHTML = `<h3 class="section-title">${category.title}</h3>`;
+    const description = categoryDescriptions[category.id] || '';
+    section.innerHTML = `
+      <h3 class="section-title">${category.title}</h3>
+      ${description ? `<p class="section-sub">${description}</p>` : ''}
+    `;
     const grid = document.createElement('div');
     grid.className = 'project-grid';
 
@@ -354,7 +466,7 @@ function renderProjects() {
 
 function openModal(project) {
   if (!project) return;
-  modalTitle.textContent = project.title;
+  modalTitle.textContent = project.modalTitle || project.title;
   modalDescription.textContent = project.description;
   modalMeta.innerHTML = `
     <div>Year: ${project.year}</div>
@@ -389,24 +501,57 @@ function openModal(project) {
   }
 
   mediaStrip.innerHTML = '';
+  const appendMediaItem = (node, aspect = null) => {
+    const holder = document.createElement('div');
+    holder.className = 'media-item';
+    if (node.tagName === 'IFRAME') {
+      const frame = document.createElement('div');
+      frame.className = 'media-embed';
+      frame.style.aspectRatio = aspect || '16 / 9';
+      frame.appendChild(node);
+      holder.appendChild(frame);
+    } else {
+      holder.appendChild(node);
+    }
+    mediaStrip.appendChild(holder);
+  };
   (project.media || [project.image]).forEach((item) => {
     if (typeof item === 'string') {
       const img = document.createElement('img');
       img.src = item;
       img.alt = project.title;
-      mediaStrip.appendChild(img);
+      appendMediaItem(img);
       return;
     }
 
     if (item?.type === 'embed') {
       const iframe = document.createElement('iframe');
-      iframe.src = item.src;
-      iframe.dataset.src = item.src;
+      const isVimeo = item.src.includes('vimeo.com');
+      const isYouTube = item.src.includes('youtube.com') || item.src.includes('youtu.be');
+      let embedBase = item.src;
+      if (isVimeo && !embedBase.includes('player.vimeo.com')) {
+        const match = embedBase.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+        if (match) {
+          const query = embedBase.split('?')[1];
+          embedBase = `https://player.vimeo.com/video/${match[1]}${query ? `?${query}` : ''}`;
+        }
+      }
+      if (isYouTube && !embedBase.includes('youtube-nocookie.com')) {
+        const match = embedBase.match(/(?:youtu\.be\/|embed\/|v=)([^?&/]+)/);
+        if (match) {
+          embedBase = `https://www.youtube-nocookie.com/embed/${match[1]}`;
+        }
+      }
+      const embedSrc = isVimeo
+        ? (embedBase.includes('?') ? `${embedBase}&title=0&byline=0&portrait=0` : `${embedBase}?title=0&byline=0&portrait=0`)
+        : (embedBase.includes('?') ? `${embedBase}&rel=0` : `${embedBase}?rel=0`);
+      iframe.src = embedSrc;
+      iframe.dataset.src = embedSrc;
       iframe.title = item.title || project.title;
-      iframe.loading = 'lazy';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
-      mediaStrip.appendChild(iframe);
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      appendMediaItem(iframe, item.aspect);
       return;
     }
 
@@ -416,16 +561,15 @@ function openModal(project) {
       video.controls = true;
       video.playsInline = true;
       video.preload = 'metadata';
-      mediaStrip.appendChild(video);
+      appendMediaItem(video);
     }
   });
   mediaStrip.classList.toggle('single-media', mediaStrip.children.length <= 1);
-  mediaStrip.scrollTo({ left: 0, behavior: 'auto' });
-
   modal.classList.remove('hidden');
   modal.classList.add('show');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  resetMediaScroll();
 }
 
 function closeModal() {
@@ -456,18 +600,10 @@ backdrop?.addEventListener('click', closeModal);
 prevButton?.addEventListener('click', () => scrollMedia(-1));
 nextButton?.addEventListener('click', () => scrollMedia(1));
 mediaStrip?.addEventListener('scroll', () => {
-  if (scrollStopTimer) {
-    window.clearTimeout(scrollStopTimer);
+  if (programmaticScroll) {
+    return;
   }
-  stopMediaPlayback();
-  scrollStopTimer = window.setTimeout(() => {
-    const iframes = mediaStrip.querySelectorAll('iframe');
-    iframes.forEach((iframe) => {
-      if (iframe.dataset.src && iframe.src !== iframe.dataset.src) {
-        iframe.src = iframe.dataset.src;
-      }
-    });
-  }, 200);
+  pauseInlineVideos();
 });
 
 window.addEventListener('keydown', (event) => {
@@ -534,6 +670,10 @@ function initCardSprings() {
 
   cards.forEach((card) => {
     card.addEventListener('pointerenter', () => {
+      const img = card.querySelector('img');
+      if (img?.dataset.hover) {
+        img.src = img.dataset.hover;
+      }
       cards.forEach((el) => {
         el.style.zIndex = '1';
         el.classList.remove('is-hovered');
@@ -544,6 +684,10 @@ function initCardSprings() {
     });
 
     card.addEventListener('pointerleave', () => {
+      const img = card.querySelector('img');
+      if (img?.dataset.static) {
+        img.src = img.dataset.static;
+      }
       card.classList.remove('is-hovered');
       animateCard(card, { y: 0, scale: 1, rotate: false, z: 0, direction: 'out' });
       window.setTimeout(() => {

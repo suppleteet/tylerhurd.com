@@ -13,6 +13,7 @@ const projects = [
       'work/first-encounters/media/FirstEncounters4.webp',
       'work/first-encounters/media/FirstEncounters5.webp',
     ],
+    detailsPath: 'work/first-encounters/details.html',
   },
   {
     title: 'The World Beyond',
@@ -29,6 +30,7 @@ const projects = [
       },
       'work/the-world-beyond/cover.jpg',
     ],
+    detailsPath: 'work/the-world-beyond/details.html',
   },
   {
     title: 'Supernatural',
@@ -43,7 +45,12 @@ const projects = [
         src: 'https://youtu.be/dz_2h6vaYKQ',
         title: 'Supernatural trailer',
       },
+      'work/supernatural/media/supernatural-screenshot-01.webp',
+      'work/supernatural/media/supernatural-screenshot-02.webp',
+      'work/supernatural/media/supernatural-screenshot-03.webp',
+      'work/supernatural/media/supernatural-screenshot-04.webp',
     ],
+    detailsPath: 'work/supernatural/details.html',
   },
   {
     title: 'Oculus Medium',
@@ -59,6 +66,7 @@ const projects = [
         title: 'Oculus Medium trailer',
       },
     ],
+    detailsPath: 'work/oculus-medium/details.html',
   },
   {
     title: 'Old Friend',
@@ -141,7 +149,7 @@ const projects = [
     year: 2017,
     role: 'Creator / Director',
     category: 'Originals',
-    description: 'Music-driven animated VR experience.',
+    description: 'Multiplayer music-driven animated VR experience.',
     hoverVideo: 'work/chorus-vr/cover.mp4',
     media: [
       'work/chorus-vr/cover.jpg',
@@ -213,6 +221,7 @@ const projects = [
         title: 'Polly Pocket',
       },
     ],
+    detailsPath: 'work/polly-pocket/details.html',
   },
 
   {
@@ -229,6 +238,7 @@ const projects = [
         title: 'Sony PlayStation 4',
       },
     ],
+    detailsPath: 'work/sony-playstation-4/details.html',
   },
   {
     title: 'Froot Loops',
@@ -245,6 +255,7 @@ const projects = [
         title: 'Froot Loops',
       },
     ],
+    detailsPath: 'work/froot-loops/details.html',
   },
   {
     title: "Uncle Ben's",
@@ -261,6 +272,7 @@ const projects = [
         title: "Uncle Ben's, Teach Your Children",
       },
     ],
+    detailsPath: 'work/uncle-bens/details.html',
   },
   {
     title: 'Happy Action Theater',
@@ -277,6 +289,7 @@ const projects = [
         title: 'Happy Action Theater',
       },
     ],
+    detailsPath: 'work/kinect-party/details.html',
   },
   {
     title: 'Once Upon A Monster',
@@ -292,7 +305,13 @@ const projects = [
         title: 'Once Upon A Monster trailer',
       },
       'work/once-upon-a-monster/cover.jpg',
+      'work/once-upon-a-monster/media/once-upon-a-monster-screenshot-01.jpg',
+      'work/once-upon-a-monster/media/once-upon-a-monster-screenshot-02.jpg',
+      'work/once-upon-a-monster/media/once-upon-a-monster-screenshot-03.jpg',
+      'work/once-upon-a-monster/media/once-upon-a-monster-screenshot-04.jpg',
+      'work/once-upon-a-monster/media/once-upon-a-monster-screenshot-05.jpg',
     ],
+    detailsPath: 'work/once-upon-a-monster/details.html',
   },
   {
     title: 'Costume Quest',
@@ -308,7 +327,14 @@ const projects = [
         title: 'Costume Quest trailer',
       },
       'work/costume-quest/cover.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-01.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-02.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-03.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-04.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-05.jpg',
+      'work/costume-quest/media/costume-quest-screenshot-06.jpg',
     ],
+    detailsPath: 'work/costume-quest/details.html',
   },
   {
     title: 'Brutal Legend',
@@ -316,15 +342,21 @@ const projects = [
     role: 'Senior Animator / Character TD',
     category: 'Shipped Games',
     description: 'Character animation and tooling in a large-scale action game.',
-    image: 'work/brutal-legend/cover.jpg',
+    hoverVideo: 'work/brutal-legend/cover.mp4',
     media: [
       {
         type: 'embed',
         src: 'https://www.youtube.com/watch?v=apbgshuBe6M',
         title: 'Brutal Legend trailer',
       },
-      'work/brutal-legend/cover.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-01.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-02.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-03.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-04.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-05.jpg',
+      'work/brutal-legend/media/brutal-legend-screenshot-06.jpg',
     ],
+    detailsPath: 'work/brutal-legend/details.html',
   },
   {
     title: 'Psychonauts',
@@ -340,7 +372,15 @@ const projects = [
         title: 'Psychonauts trailer',
       },
       'work/psychonauts/cover.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-01.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-02.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-03.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-04.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-05.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-06.jpg',
+      'work/psychonauts/media/psychonauts-screenshot-07.jpg',
     ],
+    detailsPath: 'work/psychonauts/details.html',
   },
 ];
 
@@ -364,6 +404,30 @@ const motionSettings = {
 };
 const detailsCache = new Map();
 let detailsRequestId = 0;
+
+if (modalDetails) {
+  modalDetails.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    const match = href.match(/#project-([a-z0-9-]+)/i);
+    if (!match) return;
+    event.preventDefault();
+    const slug = match[1];
+    const project = projects.find((item) => (item.slug || slugify(item.title)) === slug);
+    if (!project) return;
+    const openNext = () => {
+      history.replaceState(null, '', `#project-${slug}`);
+      openModal(project);
+    };
+    if (modal && !modal.classList.contains('hidden')) {
+      closeModal();
+      window.setTimeout(openNext, 140);
+    } else {
+      openNext();
+    }
+  });
+}
 
 const elastic = (x) => {
   if (x === 0 || x === 1) return x;

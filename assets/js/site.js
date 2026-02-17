@@ -278,7 +278,7 @@ const projects = [
     title: 'Happy Action Theater',
     year: 2012,
     role: 'Senior Animator / Character TD',
-    category: 'Shipped Games',
+    category: 'Game Development (Double Fine)',
     description: '(AKA Kinect Party) Kinect based mini-games, character animation and effects work.',
     image: '',
     hoverVideo: 'work/kinect-party/cover.mp4',
@@ -295,7 +295,7 @@ const projects = [
     title: 'Once Upon A Monster',
     year: 2011,
     role: 'Senior Animator / Character TD',
-    category: 'Shipped Games',
+    category: 'Game Development (Double Fine)',
     description: 'Kinect-based character performance and animation support.',
     hoverVideo: 'work/once-upon-a-monster/cover.mp4',
     media: [
@@ -317,7 +317,7 @@ const projects = [
     title: 'Costume Quest',
     year: 2010,
     role: 'Senior Animator / Character TD',
-    category: 'Shipped Games',
+    category: 'Game Development (Double Fine)',
     description: 'Stylized character animation and rigging.',
     image: 'work/costume-quest/cover.jpg',
     media: [
@@ -340,7 +340,7 @@ const projects = [
     title: 'Brutal Legend',
     year: 2009,
     role: 'Senior Animator / Character TD',
-    category: 'Shipped Games',
+    category: 'Game Development (Double Fine)',
     description: 'Character animation and tooling in a large-scale action game.',
     hoverVideo: 'work/brutal-legend/cover.mp4',
     media: [
@@ -362,7 +362,7 @@ const projects = [
     title: 'Psychonauts',
     year: 2005,
     role: 'Senior Animator / Character TD',
-    category: 'Shipped Games',
+    category: 'Game Development (Double Fine)',
     description: 'Animated, modeled, and rigged characters; built tools in Maya.',
     image: 'work/psychonauts/cover.jpg',
     media: [
@@ -519,26 +519,27 @@ function renderProjects() {
   const categories = [
     { id: 'Originals', title: 'Originals' },
     { id: 'Meta Spatial Computing', title: 'Meta Spatial Computing' },
-    { id: 'Shipped Games', title: 'Shipped Games' },
+    { id: 'Game Development (Double Fine)', title: 'Game Development (Double Fine)' },
     { id: 'Advertising', title: 'Advertising' },
   ];
   const vrOrder = [
-    'Old Friend VR',
-    'Chocolate VR',
-    'Beach Body Bros',
-    'Chorus VR',
-    'BUTTS VR',
     'Actuator',
+    'Old Friend',
+    'Chocolate',
+    'Beach Body Bros',
+    'Chorus',
+    'BUTTS VR',
   ];
+  const vrOrderIndex = new Map(vrOrder.map((title, index) => [title, index]));
 
   const categoryDescriptions = {
     Originals:
-      'Original VR experiences I designed and created solo or with small teams, short music video format, lots of festival premieres and a few awards.',
+      'Original VR experiences created solo or with small teams. Music-driven, character-led, and internationally recognized at festivals including Tribeca and Sundance.',
     'Meta Spatial Computing':
       '<strong>[NOTE: My R&amp;D prototypes were under NDA]</strong>  These are a few shipped products I contributed to.',
     Advertising:
       'A few select works during 2 years freelancing on advertisements in NYC.',
-    'Shipped Games':
+    'Game Development (Double Fine)':
       'Character TD / Animator for 9 years at Double Fine Productions.',
   };
 
@@ -547,7 +548,14 @@ function renderProjects() {
       .filter((project) => project.category === category.id)
       .sort((a, b) => {
         if (category.id === 'Originals') {
-          return vrOrder.indexOf(a.title) - vrOrder.indexOf(b.title);
+          const aIndex = vrOrderIndex.get(a.title);
+          const bIndex = vrOrderIndex.get(b.title);
+          if (aIndex !== undefined && bIndex !== undefined) {
+            return aIndex - bIndex;
+          }
+          if (aIndex !== undefined) return -1;
+          if (bIndex !== undefined) return 1;
+          return b.year - a.year;
         }
         return b.year - a.year;
       });

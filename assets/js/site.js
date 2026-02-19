@@ -489,8 +489,11 @@ function buildProjectCard(project) {
     ? `<img src="${project.image}" alt="${project.title} cover" />`
     : '';
   const showVideoOnly = !project.image && project.hoverVideo;
+  const videoPoster = showVideoOnly
+    ? (project.poster || project.hoverVideo.replace(/\.mp4$/i, '-poster.jpg'))
+    : '';
   const videoHtml = showVideoOnly
-    ? `<video class="card-video" muted loop playsinline preload="auto" autoplay src="${project.hoverVideo}"></video>`
+    ? `<video class="card-video" muted loop playsinline preload="auto" autoplay poster="${videoPoster}" src="${project.hoverVideo}"></video>`
     : '';
   const loaderHtml = showVideoOnly
     ? '<img class="card-loader" src="assets/images/card-loading.gif" alt="" aria-hidden="true" />'

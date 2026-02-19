@@ -19,20 +19,25 @@
 <body class="page-danceparty">
     <div id="mobile_play_button" onClick="play_vids();" style="cursor:pointer;" >
     </div>
-    
-    <div id="loading">
-    </div>
-    
-    <div id="nav">
-        <div id="nav_left" onClick="navigate(-1);" style="cursor:pointer;" ><span>&#60;</span></div>
-        <div id="nav_home" onClick="navigate(0);" style="cursor:pointer;"><img src="images/home.png"></img></div>
-        <div id="nav_right" onClick="navigate(1);" style="cursor:pointer;"><span>&#62;</span></div>
-    </div>
 
    <div id="center">
         
         <div id="content">
         </div>
         
+    </div>
+
+    <div class="modal hidden" id="dance-modal" aria-hidden="true">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="Dance move media">
+        <button class="modal-close" type="button" aria-label="Close">×</button>
+        <div class="modal-content danceparty-modal-content">
+          <div class="modal-media">
+            <button class="media-nav prev" id="dance-prev" type="button" aria-label="Previous move">‹</button>
+            <div class="media-strip" id="dance-modal-strip"></div>
+            <button class="media-nav next" id="dance-next" type="button" aria-label="Next move">›</button>
+          </div>
+        </div>
+      </div>
     </div>
 </body>

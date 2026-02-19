@@ -495,10 +495,7 @@ function buildProjectCard(project) {
   const videoHtml = showVideoOnly
     ? `<video class="card-video" muted loop playsinline preload="auto" autoplay poster="${videoPoster}" src="${project.hoverVideo}"></video>`
     : '';
-  const loaderHtml = showVideoOnly
-    ? '<img class="card-loader" src="assets/images/card-loading.gif" alt="" aria-hidden="true" />'
-    : '';
-  card.innerHTML = `${imageHtml}${videoHtml}${loaderHtml}${titleHtml}`;
+  card.innerHTML = `${imageHtml}${videoHtml}${titleHtml}`;
   const img = card.querySelector('img');
   if (img) {
     img.dataset.static = project.image;
@@ -508,13 +505,9 @@ function buildProjectCard(project) {
   }
   const cardVideo = card.querySelector('.card-video');
   if (cardVideo) {
-    card.classList.add('has-video-only');
-    const markReady = () => card.classList.add('video-ready');
-    cardVideo.addEventListener('loadeddata', markReady, { once: true });
     cardVideo.addEventListener('canplay', () => {
       cardVideo.play().catch(() => {});
     });
-    cardVideo.addEventListener('error', markReady, { once: true });
   }
   card.addEventListener('click', () => {
     history.replaceState(null, '', `#project-${slug}`);

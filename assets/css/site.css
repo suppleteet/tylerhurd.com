@@ -406,36 +406,6 @@ main {
   z-index: 1;
 }
 
-.project-card .card-loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 36px;
-  height: 36px;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  pointer-events: none;
-  image-rendering: auto;
-  opacity: 0;
-  filter: brightness(0) saturate(100%) invert(73%) sepia(32%) saturate(2164%) hue-rotate(286deg) brightness(100%) contrast(102%);
-  transition: opacity 0.16s ease;
-}
-
-.project-card.has-video-only:not(.video-ready) .card-loader {
-  animation: cardLoaderReveal 0s linear 0.45s forwards;
-}
-
-.project-card.has-video-only.video-ready .card-loader {
-  animation: none;
-  opacity: 0;
-}
-
-@keyframes cardLoaderReveal {
-  to {
-    opacity: 1;
-  }
-}
-
 .project-card.is-hovered {
   box-shadow: none;
   z-index: 10;
